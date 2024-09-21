@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Image/CRUD - logo.png" type="image/x-icon">
+    <title>CRUDS</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div id="home" class="manage d-flex flex-column justify-content-evenly pb-5 pt-4">
+        <div class="container h-auto border border-1 border-light rounded-4 d-flex flex-column my-5 py-5">
+            <header class="d-flex flex-column justify-content-center align-items-center">
+                <h1 class="text-center mt-4 mb-3 text-light second-font">CRUDS System</h1>
+                <article id="validateForm" class="text-danger fw-semibold fs-4 text-center py-2 d-none"> Product is Invalide </article>    
+            </header>
+            <div class="manage-form w-75 mx-sm-auto m-lg-3 text-capitalize d-flex flex-column align-self-center">
+    
+                <div class="row">
+                    <div class="col-6">
+                        <label for="productName" class="fw-semibold text-secondary"> Product Name : </label>
+                        <input type="text" oninput="validateInputs(this)" id="productName" class="form-control mt-2 mb-4"/>
+                        <article class="alert alert-danger py-1 d-none text-capitalize"> Product Name must be 4 letters at least and starts with capital letter . </article>    
+                    </div>
+
+                    <div class="col-6">
+                        <label for="productImage" class="fw-semibold text-secondary"> Product Image : </label>
+                        <input type="file" oninput="validateInputs(this)" accept="image/*" id="productImage" class="form-control mt-2 mb-4"/>    
+                    </div>
+                    
+                    <div class="col-6">
+                        <label for="productPrice" class="fw-semibold text-secondary"> Product Price : </label>
+                        <input type="number" oninput="validateInputs(this)" id="productPrice" class="form-control mt-2 mb-4"/>
+                        <article class="alert alert-danger py-2 d-none text-capitalize"> Product price must be between '1000' & '100000'. </article>    
+                    </div>
+                    
+                    <div class="col-6">
+                        <label for="productCategory" class="fw-semibold text-secondary"> Product Category : </label>
+                        <input type="text" oninput="validateInputs(this)" list="category" id="productCategory" class="form-control mt-2 mb-4"/>
+        
+                        <datalist id="category">
+                            <option value="Mobile"></option>
+                            <option value="Tv"></option>
+                            <option value="Tap"></option>
+                            <option value="Laptop"></option>
+                            <option value="Camera"></option>
+                        </datalist>    
+                    </div>
+                    
+                    <div class="col-12">
+                        <label for="productDesc" class="fw-semibold text-secondary"> Product Description : </label>
+                        <textarea type="text" oninput="validateInputs(this)" id="productDesc" class="form-control mt-2 mb-4" rows="2"></textarea>
+                        <article class="alert alert-danger py-2 d-none text-capitalize"> Product Description must be between 5 and 20 words and between every word a space and end with space. </article>    
+                    </div>
+                </div>
+    
+                <button id="addButton" class="btn btn-outline-secondary fw-semibold mb-3 align-self-center" onclick="addProduct()"> Add Product </button>
+                <button id="updateButton" class="btn btn-outline-success fw-semibold mb-3 align-self-center d-none" onclick="updateProduct()" > Update Product </button>    
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="Prod" id="bord">
+        <div class="container pt-3">
+            <h2 class="second-font text-center text-dark pt-5 pb-2">Prouducts</h2>
+            <input oninput="search()" type="text" id="SearchTerm" class="form-control my-4 w-50 mx-auto bg-white" placeholder="Search"/>
+
+            <div id="rowData" class="row gy-4 pb-5 pt-4">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- <button class="btn btn-outline-dark text-center w-50" disabled><a href="https://www.google.com"> hello </a></button> -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
